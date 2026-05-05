@@ -12,5 +12,5 @@ def dashboard(request: Request):
     return templates.TemplateResponse(
         request=request, 
         name="index.html", 
-        context={"character": character,}      
+        context={"character": character,}   
     )

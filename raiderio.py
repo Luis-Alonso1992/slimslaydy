@@ -22,6 +22,7 @@ def get_character_information():
     if response.status_code == 200:
         data = response.json()
         season = data.get("mythic_plus_scores_by_season", [])
+        gear = data.get("gear", {})
         current_season = season[0]
         scores = current_season.get("scores", {})
         return {
@@ -29,9 +30,9 @@ def get_character_information():
             "realm": data.get("realm"),
             "race": data.get("race"),
             "class": data.get("class"),
-            "mythic_score": scores.get("all")
+            "mythic_score": scores.get("all"),
+            "item_level": gear.get("item_level_equipped")
         }
     else:
         print("Request Failed")
         print(response.text[:500])
-
