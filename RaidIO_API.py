@@ -36,5 +36,8 @@ def get_character_information():
         print(response.text[:500])
 
 
-get_character_information()
+character = get_character_information()
 
+print("Name:", character["name"])
+print("Class:",character["class"])
+print("Mythic+ Score:",character["mythic_score"])
